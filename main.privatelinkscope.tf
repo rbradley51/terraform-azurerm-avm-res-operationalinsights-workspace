@@ -22,6 +22,10 @@ resource "azapi_resource" "amplscope" {
   parent_id                 = each.value.resource_id
   schema_validation_enabled = false
   tags                      = var.tags
+
+  lifecycle {
+    ignore_changes = [ tags ]
+  }
 }
 
 resource "azurerm_monitor_private_link_scoped_service" "this" {

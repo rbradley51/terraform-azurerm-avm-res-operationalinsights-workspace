@@ -31,5 +31,9 @@ resource "azurerm_log_analytics_workspace" "this" {
       update = timeouts.value.update
     }
   }
+
+  lifecycle {
+    ignore_changes = [ tags ]
+  }
 }
 
